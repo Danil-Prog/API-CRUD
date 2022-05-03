@@ -13,7 +13,7 @@ public class AdminController {
     private UserService userService;
 
     @GetMapping("/admin/v1/users")
-    public String bookList(){
+    public String userList(){
         return "admin/users";
     }
 
