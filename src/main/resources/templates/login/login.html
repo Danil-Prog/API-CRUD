@@ -13,55 +13,24 @@
 
     <body>
 
-        <div layout:fragment="header">
-
-            <div th:insert="blocks/header :: header"></div>
-
-        </div>
 
         <div layout:fragment="main-content">
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                            <label for="disabled">Disabled</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            This is an inline input field:
-                            <div class="input-field inline">
-                                <input id="email_inline" type="email" class="validate">
-                                <label for="email_inline">Email</label>
-                                <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+
+            <form action="/login" method="post" style="margin: 20vh">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Запомнить</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
 
         </div>
 

@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
-<body>
 
-</body>
+</head>
+
+    <body>
+
+    <div layout:fragment="main-content">
+
+        <form action="/registration" method="post" style="margin: 20vh">
+            <div class="mb-3">
+                <label for="forName" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="forName" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="forPassword" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="forPassword" name="password">
+            </div>
+            <div class="mb-3">
+                <label for="forPasswordConfirm" class="form-label">Подтвердите пароль</label>
+                <input type="password" class="form-control" id="forPasswordConfirm" name="passwordConfirm">
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+
+    </div>
+
+    </body>
 </html>
