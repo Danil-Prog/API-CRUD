@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/registration").not().fullyAuthenticated()
                     .antMatchers("/admin/**").hasRole("USER")
                     .antMatchers("/index/**").hasRole("USER")
-                    .antMatchers("/", "/resources/**").permitAll()
+                    .antMatchers("/", "/resources/**", "/swagger-ui.html/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                     .formLogin()
