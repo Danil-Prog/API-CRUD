@@ -3,7 +3,6 @@ package com.lesson.api.service;
 
 import com.lesson.api.entity.Role;
 import com.lesson.api.entity.User;
-import com.lesson.api.repository.RoleRepository;
 import com.lesson.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,9 +20,6 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository repository;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -51,7 +47,7 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        user.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
+        user.setRoles(Collections.singleton(Role.USER));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
