@@ -13,17 +13,26 @@
 
     <body>
 
-        <div layout:fragment="header">
+    <div layout:fragment="header">
 
-            <div th:insert="blocks/header :: header"></div>
+        <div th:insert="blocks/header :: header"></div>
 
-        </div>
+    </div>
 
-        <div layout:fragment="main-content">
-            <h1>
-                This is admin page!
-            </h1>
-        </div>
+    <div layout:fragment="menu">
+
+        <div th:insert="blocks/menu :: menu"></div>
+
+    </div>
+
+    <div layout:fragment="main-content">
+        <h1 class="display-4">
+            This content admin-user page!
+        </h1>
+        <h1 class="display-6" th:text="${username}"></h1>
+        <h1 class="display-6" th:text="${user_date_registration}"></h1>
+        <h1 class="display-6" th:text="${user_role}"></h1>
+    </div>
 
     </body>
 </html>
