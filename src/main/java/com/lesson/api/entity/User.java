@@ -1,13 +1,17 @@
 package com.lesson.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Set;
 
 
@@ -31,6 +35,11 @@ public class User implements UserDetails {
 
     @Transient
     private String passwordConfirm;
+
+    @Column(name = "date_registration")
+    @DateTimeFormat
+    @JsonFormat(pattern="dd.MM.yyyy")
+    private LocalDate date = LocalDate.now();
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
