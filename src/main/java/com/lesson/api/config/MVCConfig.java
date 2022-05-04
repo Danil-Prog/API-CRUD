@@ -20,14 +20,17 @@ public class MVCConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/bootstrap/css/**")
+                .addResourceLocations("classpath:/static/bootstrap/css/");
+
+        registry.addResourceHandler("/bootstrap/js/**")
+                .addResourceLocations("classpath:/static/bootstrap/js/");
+
         registry.addResourceHandler("/css/**")
                 .addResourceLocations("classpath:/static/css/");
 
-        registry.addResourceHandler("/js/**")
-                .addResourceLocations("classpath:/static/js/");
-
-        registry.addResourceHandler("/img/**")
-                .addResourceLocations("classpath:/static/img/");
+        registry.addResourceHandler("/image/**")
+                .addResourceLocations("classpath:/static/image/");
 
     }
 
@@ -36,7 +39,7 @@ public class MVCConfig implements WebMvcConfigurer {
     static class FaviconController {
         @RequestMapping("favicon.ico")
         String favicon() {
-            return "forward:/img/favicon.ico";
+            return "forward:/image/favicon.ico";
         }
     }
 
