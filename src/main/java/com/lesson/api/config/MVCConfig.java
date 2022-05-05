@@ -31,7 +31,6 @@ public class MVCConfig implements WebMvcConfigurer {
 
         registry.addResourceHandler("/image/**")
                 .addResourceLocations("classpath:/static/image/");
-
     }
 
 
