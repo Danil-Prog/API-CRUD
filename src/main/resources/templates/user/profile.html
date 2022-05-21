@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+
+<div layout:fragment="header">
+
+    <div th:insert="blocks/header :: header"></div>
+
+</div>
+
+<div layout:fragment="menu">
+
+    <div th:insert="blocks/menu :: menu"></div>
+
+</div>
+
+<div layout:fragment="main-content">
+    <h1 class="display-4">
+        Профиль
+    </h1>
+        <div class = "card-body">
+
+            <div class="mb-3 row">
+                <label for="staticUsername" class="col-sm-2 col-form-label">Логин</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticUsername" th:value="${username}">
+                </div>
+
+                <label for="staticRole" class="col-sm-2 col-form-label">Дата регистрации</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticRole" th:value="${userGetDateRegistration}">
+                </div>
+
+            </div>
+
+            <form th:action = "@{/profile/update/{id} (id=${user})}" th:object = "${user}" method="POST">
+                <div class = "form-group">
+                    <label> Изменить логин</label>
+                    <br>
+                    <input
+                            type = "text"
+                            name = "username"
+                            class = "form-control"
+                            placeholder="Введите логин"
+                    />
+                </div>
+                <br>
+                <div class = "footer-body">
+                    <button type="submit" class="btn btn-primary">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+</div>
+
+</body>
+</html>
