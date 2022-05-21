@@ -50,11 +50,15 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        user.setRoles(Collections.singleton(Role.ROLE_ADMIN));
+        user.setRoles(Collections.singleton(Role.ROLE_USER));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
         return true;
+    }
+
+    public User updateUser(User user) {
+        return userRepository.save(user);
     }
 
     public boolean deleteUser(Long userId) {
@@ -65,6 +69,7 @@ public class UserService implements UserDetailsService {
 
         return false;
     }
+
 
     public List<User> allUsers(){
         return userRepository.findAll();
