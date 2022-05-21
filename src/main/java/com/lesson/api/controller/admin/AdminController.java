@@ -17,10 +17,8 @@ public class AdminController {
     private UserService userService;
 
     @GetMapping("/admin/v1/users")
-    public String userList(@AuthenticationPrincipal User user, Model model){
-        model.addAttribute("username", user.getUsername());
-        model.addAttribute("user_date_registration", user.getDate());
-        model.addAttribute("user_role", user.getRoles());
+    public String userList(Model model){
+        model.addAttribute("userList", userService.allUsers());
         return "admin/users";
     }
 
